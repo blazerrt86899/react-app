@@ -8,6 +8,10 @@ pipeline {
           def test = 2 + 2 > 3 ? 'Cool':'Not Cool'
           echo test
         }
+        nodejs('node-10.17') {
+          sh 'yarn install'
+          sh 'yarn build'
+        }
       }
     }
     stage('Test') {
